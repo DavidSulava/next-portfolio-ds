@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
-const config = require('@/next.config');
-
 const items = [
   {
     id: 1,
@@ -66,7 +64,7 @@ const PortfolioPage = () => {
                     {item.title}
                   </h1>
                   <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[220px] xl:w-[800px] xl:h-[420px]">
-                    <Image className="rounded" src={config.basePath + item.img} alt="project image" fill />
+                    <Image className="rounded" src={item.img} alt="project image" fill />
                   </div>
                   <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px]">
                     {item.desc}

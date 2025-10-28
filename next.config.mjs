@@ -7,8 +7,8 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export', // Enables static HTML export
-  basePath: isProd ?'/next-portfolio-ds' : '',
-  assetPrefix: isProd ?'/next-portfolio-ds' : '',
+  basePath: isProd ? '/next-portfolio-ds' : '',
+  assetPrefix: isProd ? '/next-portfolio-ds' : '',
 };
 
 export default nextConfig;
