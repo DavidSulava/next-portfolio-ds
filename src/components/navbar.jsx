@@ -7,6 +7,8 @@ import { useState } from "react";
 import NavLink from "@/components/navLink";
 import { motion } from "framer-motion";
 
+const config = require('@/next.config');
+
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
@@ -95,7 +97,7 @@ const Navbar = () => {
       <div className="hidden md:flex gap-4 w-1/3">
          {contactLinks.map((item) => (
           <Link href={item.url} target="_blank"  key={item.url}>
-            <Image src={item.img} alt="link image" width={24} height={24} />
+            <Image src={config.basePath + item.img} alt="link image" width={24} height={24} />
           </Link>
         ))}
       </div>
