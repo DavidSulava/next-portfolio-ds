@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
+const NEXT_PUBLIC_PATH = process.env.NEXT_PUBLIC_PATH
 const items = [
   {
     id: 1,
     color: "from-red-300 to-blue-300",
     title: "Vue LPMotor CMS",
     desc: "Create a website with a quiz or an online store with a shopping cart and delivery options.",
-    img: "/worck examples/LPMotor.png",
+    img: "/worck_examples/lp_motor.png",
     link: "https://lpmotor.ru/",
   },
   {
@@ -18,7 +19,7 @@ const items = [
     color: "from-blue-300 to-violet-300",
     title: "Next.js Phone Customization",
     desc: "Design your perfect phone case with our intuitive editor. Express yourself with custom artwork, photos, or choose from our curated collection of designs.",
-    img: "/worck examples/phone-customisation-studio.png",
+    img: "/worck_examples/phone_customisation_studio.png",
     link: "https://davidsulava.github.io/phone-customisation-studio/",
   },
   {
@@ -26,7 +27,7 @@ const items = [
     color: "from-violet-300 to-purple-300",
     title: "React 18 Shadow generator",
     desc: "Box Shadow Generator for React with Tailwind CSS.",
-    img: "/worck examples/shadow_generator.png",
+    img: "/worck_examples/shadow_generator.png",
     link: "https://davidsulava.github.io/shadow-css/",
   },
 ];
@@ -64,7 +65,7 @@ const PortfolioPage = () => {
                     {item.title}
                   </h1>
                   <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[220px] xl:w-[800px] xl:h-[420px]">
-                    <Image className="rounded" src={item.img} alt="project image" fill />
+                    <Image className="rounded" src={NEXT_PUBLIC_PATH + item.img} alt="project image" fill />
                   </div>
                   <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px]">
                     {item.desc}

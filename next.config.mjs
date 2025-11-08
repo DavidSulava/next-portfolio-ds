@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-const isProd = process.env.NODE_ENV === 'production';
-const path = isProd ? '/next-portfolio-ds' : ''
+// const isProd = process.env.NODE_ENV === 'production';
+// const path = isProd ? '/next-portfolio-ds' : ''
 
 const nextConfig = {
   images: {
     unoptimized: true,
-     path: path,
   },
   output: 'export', // Enables static HTML export
 };
