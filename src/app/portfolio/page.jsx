@@ -64,7 +64,7 @@ const PortfolioPage = () => {
                   <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
                     {item.title}
                   </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[220px] xl:w-[800px] xl:h-[420px]">
+                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[850px] lg:h-[420px] xl:w-[800px] xl:h-[420px]">
                     <Image className="rounded" src={publicPath + item.img} alt="project image" fill />
                   </div>
                   <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px]">
