@@ -6,7 +6,7 @@ import { useState } from "react";
 import NavLink from "@/components/navLink";
 import { motion } from "framer-motion";
 
-const NEXT_PUBLIC_PATH = process.env.NEXT_PUBLIC_PATH
+const publicPath = process.env.publicPath;
 const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
@@ -95,7 +95,7 @@ const Navbar = () => {
       <div className="hidden md:flex gap-4 w-1/3">
          {contactLinks.map((item) => (
           <Link href={item.url} target="_blank"  key={item.url}>
-            <Image src={NEXT_PUBLIC_PATH + item.img} alt="link image" width={24} height={24} />
+            <Image src={publicPath + item.img} alt="link image" width={24} height={24} />
           </Link>
         ))}
       </div>
