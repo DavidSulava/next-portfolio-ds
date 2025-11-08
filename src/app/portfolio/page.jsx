@@ -46,7 +46,7 @@ const PortfolioPage = () => {
       transition={{ duration: 1 }}
     >
       <div className="h-[600vh] relative" ref={ref}>
-        <div className="w-screen h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-8xl text-center">
+        <div className="w-screen h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-7xl text-center">
           <div>My worck examples</div>
           <span className="italic text-3xl">
             Scroll Down ⬇️
@@ -61,10 +61,10 @@ const PortfolioPage = () => {
                 key={item.id}
               >
                 <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-7xl">
                     {item.title}
                   </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[700px] lg:h-[380px] xl:w-[650px] xl:h-[300px]">
+                  <div className="relative w-80 h-40 md:w-96 md:h-64 lg:w-[700px] lg:h-[380px] xl:w-[650px] xl:h-[300px]">
                     <Image className="rounded" src={publicPath + item.img} alt="project image" fill />
                   </div>
                   <p className="w-80 md:w96 lg:w-[500px] lg:text-lg xl:w-[600px]">
@@ -80,7 +80,7 @@ const PortfolioPage = () => {
         </div>
       </div>
       <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
-        <h1 className="text-8xl">Do you have a project?</h1>
+        <h1 className="text-7xl">Do you have a project?</h1>
         <div className="relative">
           <motion.svg
             animate={{ rotate: 360 }}
