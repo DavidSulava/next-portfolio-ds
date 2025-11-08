@@ -46,7 +46,7 @@ const PortfolioPage = () => {
       transition={{ duration: 1 }}
     >
       <div className="h-[600vh] relative" ref={ref}>
-        <div className="w-screen h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-7xl text-center">
+        <div className="h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-7xl text-center">
           <div>My worck examples</div>
           <span className="italic text-3xl">
             Scroll Down ⬇️
