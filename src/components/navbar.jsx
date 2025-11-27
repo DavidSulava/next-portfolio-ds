@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import NavLink from "@/components/navLink";
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import NavLink from '@/components/navLink';
+import { motion } from 'framer-motion';
 
 const publicPath = process.env.publicPath;
 const links = [
-  { url: "/", title: "Home" },
-  { url: "/about", title: "About" },
-  { url: "/portfolio", title: "Portfolio" },
+  { url: '/', title: 'Home' },
+  { url: '/about', title: 'About' },
+  { url: '/portfolio', title: 'Portfolio' },
 ];
 
 const contactLinks = [
-  { url: "https://github.com/DavidSulava", img: '/github.png' },
-  { url: "https://perm.hh.ru/resume/6bf50ac1ff0f842ccf0039ed1f6f6c754a7167", img: '/hh.ru.svg' },
-  { url: "https://t.me/DavidSulava", img: '/telegram.svg' },
+  { url: 'https://github.com/DavidSulava', img: '/github.png' },
+  { url: 'https://perm.hh.ru/resume/6bf50ac1ff0f842ccf0039ed1f6f6c754a7167', img: '/hh.ru.svg' },
+  { url: 'https://t.me/DavidSulava', img: '/telegram.svg' },
 ];
 
 const Navbar = () => {
@@ -28,7 +28,7 @@ const Navbar = () => {
     },
     opened: {
       rotate: 45,
-      backgroundColor: "rgb(255,255,255)",
+      backgroundColor: 'rgb(255,255,255)',
     },
   };
   const centerVariants = {
@@ -45,17 +45,17 @@ const Navbar = () => {
     },
     opened: {
       rotate: -45,
-      backgroundColor: "rgb(255,255,255)",
+      backgroundColor: 'rgb(255,255,255)',
     },
   };
   const listVariants = {
     closed: {
-      x: "100vw",
+      x: '100vw',
     },
     opened: {
       x: 0,
       transition: {
-        when: "beforeChildren",
+        when: 'beforeChildren',
         staggerChildren: 0.2,
       },
     },

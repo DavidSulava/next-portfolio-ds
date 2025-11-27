@@ -1,75 +1,76 @@
-"use client";
-import Brain from "@/components/brain";
-import { motion, useInView, useScroll } from "framer-motion";
-import { useRef } from "react";
+'use client';
 
-const scilList = [
+import Brain from '@/components/brain';
+import { motion, useInView, useScroll } from 'framer-motion';
+import { useRef } from 'react';
+
+const skillList = [
   {
-    title: "JavaScript",
+    title: 'JavaScript',
   },
   {
-    title: "TypeScript",
+    title: 'TypeScript',
   },
   {
-    title: "React",
+    title: 'React',
   },
   {
-    title: "Vue",
+    title: 'Vue',
   },
   {
-    title: "Next.js",
+    title: 'Next.js',
   },
   {
-    title: "Nuxt.js",
+    title: 'Nuxt.js',
   },
   {
-    title: "Tailwind",
+    title: 'Tailwind',
   },
   {
-    title: "Express",
+    title: 'Express',
   },
   {
-    title: "Laravel",
+    title: 'Laravel',
   },
   {
-    title: "Symfony",
+    title: 'Symfony',
   },
   {
-    title: "AWS",
+    title: 'AWS',
   },
   {
-    title: "Docker",
+    title: 'Docker',
   },
   {
-    title: "Git",
+    title: 'Git',
   },
   {
-    title: "Three.js",
+    title: 'Three.js',
   },
   {
-    title: "WebGL",
+    title: 'WebGL',
   },
 ];
 const experienceList = [
   {
-    title: "Frontend",
-    company: "LPmotor",
-    date: "2022 - Present",
-    description: "I led web development, offering expertise in Vue.js framework.",
+    title: 'Frontend',
+    company: 'LPmotor',
+    date: '2022 - Present',
+    description: 'I led web development, offering expertise in Vue.js framework.',
     isLeftSide: true,
   },
   {
-    title: "Fullstack",
-    company: "Технологика",
-    date: "2018 - 2022",
-    description: "I was a fullstack developer, offering expertise in React.js and AWS web services.",
+    title: 'Fullstack',
+    company: 'Технологика',
+    date: '2018 - 2022',
+    description: 'I was a fullstack developer, offering expertise in React.js and AWS web services.',
     isRightSide: true,
   },
   {
-    title: "Freelancer",
+    title: 'Freelancer',
     company: '',
-    date: "2018 - 2018",
-    description: "I provided web solutions, applying a range of technologies",
+    date: '2018 - 2018',
+    description: 'I provided web solutions, applying a range of technologies',
     isLeftSide: true,
   },
 ];
@@ -152,7 +153,7 @@ const AboutPage = () => {
               className="flex gap-4 flex-wrap"
             >
               {
-                scilList.map((item, index) => (
+                skillList.map((item, index) => (
                   <div
                     key={item.title + index}
                     className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black"
