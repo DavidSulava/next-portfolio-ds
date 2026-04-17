@@ -12,7 +12,6 @@ A high-performance portfolio website built with **Next.js 14**, focusing on slee
 *   **Core:** React 18, Next.js 14, TypeScript
 *   **Styles:** Tailwind CSS, PostCSS, Autoprefixer
 *   **Motion:** Framer Motion
-*   **Service:** EmailJS Browser
 
 
 
