@@ -75,9 +75,9 @@ const AboutPage: FC = () => {
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             {/* BIOGRAPHY DESC */}
             <p className="text-lg">
-              My name is David Sulava. I'm a web developer with nearly seven years of experience, focused mainly on building modern, user-friendly interfaces and web applications.
+              {`My name is David Sulava. I'm a web developer with nearly seven years of experience, focused mainly on building modern, user-friendly interfaces and web applications.
               While my core expertise lies in frontend development (Vue, React), I'm also comfortable working with backend technologies like Node.js and PHP.
-              I value clean code, teamwork, and continuous professional growth.
+              I value clean code, teamwork, and continuous professional growth.`}
             </p>
             {/* BIOGRAPHY QUOTE */}
             <span className="italic">
