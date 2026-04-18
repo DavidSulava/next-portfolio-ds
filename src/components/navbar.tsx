@@ -8,7 +8,7 @@ import { motion, Variants } from 'framer-motion';
 import { NavLinkType, ContactLinkType } from '@/types';
 import { NextPage } from 'next';
 
-const publicPath = process.env.publicPath as string;
+const publicPath = process.env.publicPath || '';
 const links: NavLinkType[] = [
   { url: '/', title: 'Home' },
   { url: '/about', title: 'About' },
