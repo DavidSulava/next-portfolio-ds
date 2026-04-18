@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { NextPage } from 'next'
 
 const Homepage: NextPage = () => {
-  const publicPath = process.env.publicPath as string;
+  const publicPath = process.env.publicPath || '';
 
   return (
     <motion.div
