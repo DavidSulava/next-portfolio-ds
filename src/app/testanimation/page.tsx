@@ -1,9 +1,9 @@
 'use client';
 
-import { FC } from 'react';
+import { NextPage } from 'next';
 import { motion, Variants } from 'framer-motion';
 
-const TestPage: FC = () => {
+const TestPage: NextPage = () => {
   const variants: Variants = {
     variant1: {
       x: 400,

@@ -1,10 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef, useState, FormEvent, FC } from 'react';
+import { NextPage } from 'next';
+import { useRef, useState, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 
-const ContactPage: FC = () => {
+const ContactPage: NextPage = () => {
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const text = 'Say Hello';

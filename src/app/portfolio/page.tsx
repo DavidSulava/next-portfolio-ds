@@ -5,10 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { PortfolioItemType } from '@/types';
-import {FC} from 'react';
+import { NextPage } from 'next';
 
 const publicPath = process.env.publicPath as string;
-
 const items: PortfolioItemType[] = [
   {
     id: 1,
@@ -36,7 +35,7 @@ const items: PortfolioItemType[] = [
   },
 ];
 
-const PortfolioPage: FC = () => {
+const PortfolioPage: NextPage = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ target: ref });

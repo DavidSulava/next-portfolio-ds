@@ -2,7 +2,8 @@
 
 import Brain from '@/components/brain';
 import { motion, useInView, useScroll } from 'framer-motion';
-import { useRef, FC } from 'react';
+import { NextPage } from 'next';
+import { useRef } from 'react';
 import { SkillType, ExperienceType } from '@/types';
 
 const skillList: SkillType[] = [
@@ -22,7 +23,6 @@ const skillList: SkillType[] = [
   { title: 'Three.js' },
   { title: 'WebGL' },
 ];
-
 const experienceList: ExperienceType[] = [
   {
     title: 'Frontend',
@@ -47,7 +47,7 @@ const experienceList: ExperienceType[] = [
   },
 ];
 
-const AboutPage: FC = () => {
+const AboutPage: NextPage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ container: containerRef });

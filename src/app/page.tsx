@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {FC} from 'react';
+import { NextPage } from 'next'
 
-const Homepage: FC = () => {
+const Homepage: NextPage = () => {
   const publicPath = process.env.publicPath as string;
 
   return (

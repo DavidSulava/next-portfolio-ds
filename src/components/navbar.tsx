@@ -6,7 +6,7 @@ import { useState } from 'react';
 import NavLink from '@/components/navLink';
 import { motion, Variants } from 'framer-motion';
 import { NavLinkType, ContactLinkType } from '@/types';
-import {FC} from 'react';
+import { NextPage } from 'next';
 
 const publicPath = process.env.publicPath as string;
 const links: NavLinkType[] = [
@@ -20,7 +20,7 @@ const contactLinks: ContactLinkType[] = [
   { url: 'https://t.me/DavidSulava', img: '/telegram.svg' },
 ];
 
-const Navbar: FC = () => {
+const Navbar: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   const topVariants: Variants = {
