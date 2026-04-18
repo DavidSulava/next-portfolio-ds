@@ -35,15 +35,18 @@ const Homepage: NextPage = () => {
           </p>
           {/* BUTTONS */}
           <div className="w-full flex gap-4">
-            <Link href='/portfolio'>
-              <button className="p-4 rounded-lg ring-1 ring-black bg-black text-white">
-                  View My Work
-              </button>
+            <Link
+                href='/portfolio'
+                className="p-4 rounded-lg ring-1 ring-black bg-black text-white"
+            >
+              View My Work
             </Link>
-             <Link href='https://t.me/DavidSulava' target="_blank">
-              <button className="p-4 rounded-lg ring-1 ring-black">
-                Contact Me
-              </button>
+             <Link
+                 href='https://t.me/DavidSulava'
+                 target="_blank"
+                 className="p-4 rounded-lg ring-1 ring-black"
+             >
+              Contact Me
              </Link>
           </div>
         </div>
