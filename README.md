@@ -1,3 +1,5 @@
+[English](README.md) | [Русский](README.ru.md)
+
 # 🚀 Modern Developer Portfolio
 
 A high-performance portfolio website built with **Next.js 14**, focusing on sleek UI and smooth user experience.
