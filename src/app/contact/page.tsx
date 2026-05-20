@@ -1,54 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { NextPage } from 'next';
-import { useRef, useState, FormEvent } from 'react';
-import emailjs from '@emailjs/browser';
+import PageWrapper from '@/components/PageWrapper';
 
-const ContactPage: NextPage = () => {
-  const [success, setSuccess] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+export default function ContactPage() {
   const text = 'Say Hello';
 
-  const form = useRef<HTMLFormElement>(null);
-
-  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError(false);
-    setSuccess(false);
-
-    if (!form.current) return;
-
-    emailjs
-      .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
-        form.current,
-        process.env.NEXT_PUBLIC_PUBLIC_KEY as string
-      )
-      .then(
-        () => {
-          setSuccess(true);
-          form.current?.reset();
-        },
-        () => {
-          setError(true);
-        }
-      );
-  };
-
   return (
-    <motion.div
-      className="h-full"
-      initial={{ y: "-200vh" }}
-      animate={{ y: "0%" }}
-      transition={{ duration: 1 }}
-    >
+    <PageWrapper>
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
-        {/* TEXT CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
           <div>
-            {text.split("").map((letter, index) => (
+            {text.split('').map((letter, index) => (
               <motion.span
                 key={index}
                 initial={{ opacity: 1 }}
@@ -62,45 +25,33 @@ const ContactPage: NextPage = () => {
                 {letter}
               </motion.span>
             ))}
-            😊
           </div>
         </div>
-        {/* FORM CONTAINER */}
-        <form
-          onSubmit={sendEmail}
-          ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24"
-        >
+        <div className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24">
           <span>Dear David,</span>
           <textarea
             rows={6}
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
-            name="user_message"
+            readOnly
+            placeholder="Write your message here..."
           />
           <span>My mail address is:</span>
           <input
-            name="user_email"
-            type="text"
+            type="email"
             className="bg-transparent border-b-2 border-b-black outline-none"
+            readOnly
+            placeholder="your@email.com"
           />
           <span>Regards</span>
-          <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
-            Send
-          </button>
-          {success && (
-            <span className="text-green-600 font-semibold">
-              Your message has been sent successfully!
-            </span>
-          )}
-          {error && (
-            <span className="text-red-600 font-semibold">
-              Something went wrong!
-            </span>
-          )}
-        </form>
+          <a
+            href="https://t.me/DavidSulava"
+            target="_blank"
+            className="bg-purple-200 rounded font-semibold text-gray-600 p-4 text-center cursor-pointer hover:bg-purple-300 transition-colors"
+          >
+            Send via Telegram
+          </a>
+        </div>
       </div>
-    </motion.div>
+    </PageWrapper>
   );
-};
-
-export default ContactPage;
+}

@@ -38,3 +38,8 @@ next-env.d.ts
 
 #phpStorm
 .idea/
+# GitNexus & AI context files
+AGENTS.md
+CLAUDE.md
+.claude/
+.opencode/
