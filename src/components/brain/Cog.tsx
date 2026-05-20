@@ -1,5 +1,5 @@
 import { motion, MotionValue } from 'framer-motion';
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 
 interface CogProps {
   id: string;
@@ -10,7 +10,7 @@ interface CogProps {
   fill?: string;
   stroke?: string;
   strokeWidth?: number | string;
-  extraElements?: React.ReactNode;
+  extraElements?: ReactNode;
 }
 
 export const Cog = memo<CogProps>(
