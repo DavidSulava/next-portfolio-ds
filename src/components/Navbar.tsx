@@ -56,7 +56,6 @@ export default function Navbar() {
       {/* LOGO */}
       <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
         <Link
-          prefetch={null}
           href={`/${locale}`}
           className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
         >
@@ -112,7 +111,6 @@ export default function Navbar() {
               return (
                 <motion.div variants={listItemVariants} key={link.title}>
                   <Link
-                    prefetch={null}
                     href={link.url}
                     className={isActive ? 'bg-white text-black rounded p-2' : ''}
                   >

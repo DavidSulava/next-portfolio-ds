@@ -10,7 +10,7 @@ export const socialLinks = [
   { url: 'https://t.me/DavidSulava', img: '/telegram.svg' },
 ];
 
-// eslint-disable-next-line no-unused-vars
+// Translator type for locale files
 type Translator = (_key: string) => string;
 
 export function getNavLinks(t: Translator, locale: string) {

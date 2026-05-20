@@ -11,7 +11,7 @@ const NavLink: FC<NavLinkProps> = ({ link }) => {
   const normalizedLink = link.url.replace(/^\/(en|ru)/, '');
 
   return (
-    <Link prefetch={null} className={`rounded p-1 ${normalizedPath === normalizedLink && "bg-black text-white"}`} href={link.url}>
+    <Link className={`rounded p-1 ${normalizedPath === normalizedLink && "bg-black text-white"}`} href={link.url}>
       {link.title}
     </Link>
   );

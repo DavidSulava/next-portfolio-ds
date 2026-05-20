@@ -1,6 +1,5 @@
 import { SkillType, ExperienceType } from '@/types';
 
-// eslint-disable-next-line no-unused-vars
 type Translator = (_key: string) => string;
 
 export const skills = [

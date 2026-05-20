@@ -5,12 +5,17 @@ import Navbar from './Navbar';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { TransitionProviderProps } from '@/types';
-import { locales } from '@/i18n';
-import {FC} from 'react';
+import { routing } from '@/i18n/routing';
+import {FC, useState, useEffect} from 'react';
 
 const TransitionProvider: FC<TransitionProviderProps> = ({ children }) => {
   const pathName = usePathname();
-  const pathWithoutLang = pathName.split(new RegExp(`\\/(${locales.join('|')})\\/`))[2] || '';
+  const pathWithoutLang = pathName.split(new RegExp(`\\/(${routing.locales.join('|')})\\/`))[2] || '';
+  const [showText, setShowText] = useState(true);
+
+  useEffect(() => {
+    setShowText(true);
+  }, [pathName]);
 
   return (
     <AnimatePresence mode="wait">
@@ -29,9 +34,10 @@ const TransitionProvider: FC<TransitionProviderProps> = ({ children }) => {
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", transitionEnd: { display: "none" }  }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          onAnimationComplete={() => setShowText(false)}
         >
-          {pathWithoutLang}
+          {showText && pathWithoutLang}
         </motion.div>
         <motion.div
           className="h-screen w-screen fixed bg-black rounded-t-[100px] bottom-0 z-30"

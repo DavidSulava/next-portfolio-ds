@@ -26,14 +26,12 @@ export default function HomePage() {
           </p>
           <div className="w-full flex gap-4">
             <Link
-              prefetch={null}
               href={`/${locale}/portfolio`}
               className="p-4 rounded-lg ring-1 ring-black bg-black text-white"
             >
               {t('viewWork')}
             </Link>
             <Link
-              prefetch={null}
               href="https://t.me/DavidSulava"
               target="_blank"
               className="p-4 rounded-lg ring-1 ring-black"

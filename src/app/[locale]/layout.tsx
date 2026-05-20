@@ -1,24 +1,24 @@
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import TransitionProvider from '@/components/TransitionProvider';
 import { ReactNode } from 'react';
-import { locales, Locale } from '@/i18n';
+import { routing } from '@/i18n/routing';
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params
-}: {
-  children: ReactNode;
-  params: { locale: string };
-}) {
-  const { locale } = params;
+export default async function LocaleLayout(
+  props: {
+    children: ReactNode;
+    params: Promise<{ locale: string }>;
+  }
+) {
+  const { locale } = await props.params;
+  const { children } = props;
 
-  if (!locales.includes(locale as Locale)) notFound();
+  if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
 
