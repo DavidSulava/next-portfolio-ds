@@ -9,6 +9,7 @@ import { socialLinks, getNavLinks } from '@/data/navigation';
 import { publicPath } from '@/lib/publicPath';
 import { useLocale, useTranslations } from 'next-intl';
 import LanguageSwitcher from './LanguageSwitcher';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,6 +17,8 @@ export default function Navbar() {
   const t = useTranslations('nav');
   const common = useTranslations('common');
   const navLinks = getNavLinks(t, locale);
+  const pathName = usePathname();
+  const normalizedPath = pathName.replace(/^\/(en|ru)/, '');
 
   const topVariants: Variants = {
     closed: { rotate: 0 },
@@ -102,11 +105,20 @@ export default function Navbar() {
             animate="opened"
             className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
-            {navLinks.map((link) => (
-              <motion.div variants={listItemVariants} key={link.title}>
-                <Link href={link.url}>{link.title}</Link>
-              </motion.div>
-            ))}
+            {navLinks.map((link) => {
+              const normalizedLink = link.url.replace(/^\/(en|ru)/, '');
+              const isActive = normalizedPath === normalizedLink;
+              return (
+                <motion.div variants={listItemVariants} key={link.title}>
+                  <Link
+                    href={link.url}
+                    className={isActive ? 'bg-white text-black rounded p-2' : ''}
+                  >
+                    {link.title}
+                  </Link>
+                </motion.div>
+              );
+            })}
             <LanguageSwitcher />
           </motion.div>
         )}
