@@ -14,27 +14,13 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex gap-2 items-center">
-      <button
-        onClick={() => switchLocale('en')}
-        className={`px-2 py-1 text-sm rounded transition-colors ${
-          locale === 'en'
-            ? 'bg-black text-white'
-            : 'bg-transparent text-black hover:bg-gray-100'
-        }`}
-      >
-        EN
-      </button>
-      <button
-        onClick={() => switchLocale('ru')}
-        className={`px-2 py-1 text-sm rounded transition-colors ${
-          locale === 'ru'
-            ? 'bg-black text-white'
-            : 'bg-transparent text-black hover:bg-gray-100'
-        }`}
-      >
-        RU
-      </button>
-    </div>
+    <select
+      value={locale}
+      onChange={(e) => switchLocale(e.target.value)}
+      className="pl-0 pr-2 py-1 text-sm rounded bg-black text-white cursor-pointer outline-none"
+    >
+      <option value="en">EN</option>
+      <option value="ru">RU</option>
+    </select>
   );
 }
