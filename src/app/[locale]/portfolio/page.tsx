@@ -51,7 +51,7 @@ export default function PortfolioPage() {
                   <Link
                     href={item.link}
                     target="_blank"
-                    className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold rounded w-fit"
+                    className="p-2 text-sm md:p-4 md:text-md lg:p-2 lg:text-lg bg-white text-gray-600 font-semibold rounded w-fit"
                   >
                     {t('goToSite')}
                   </Link>
