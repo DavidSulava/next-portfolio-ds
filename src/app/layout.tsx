@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import TransitionProvider from '@/components/transitionProvider';
+import TransitionProvider from '../components/TransitionProvider';
 import {ReactNode} from 'react';
 
 const inter = Inter({ subsets: ['latin'] });

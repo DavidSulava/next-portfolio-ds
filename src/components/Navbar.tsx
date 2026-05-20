@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import NavLink from '@/components/navLink';
+import NavLink from './navLink';
 import { motion, Variants } from 'framer-motion';
 import { navLinks, socialLinks } from '@/data/navigation';
 import { publicPath } from '@/lib/publicPath';
