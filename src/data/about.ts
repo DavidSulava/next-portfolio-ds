@@ -1,3 +1,8 @@
+import { SkillType, ExperienceType } from '@/types';
+
+// eslint-disable-next-line no-unused-vars
+type Translator = (_key: string) => string;
+
 export const skills = [
   { title: 'JavaScript' },
   { title: 'TypeScript' },
@@ -19,7 +24,7 @@ export const skills = [
 export const experiences = [
   {
     title: 'Frontend',
-    company: 'LPmotor',
+    company: 'LPMotor',
     date: '2022 - Present',
     description: 'I led web development, offering expertise in Vue.js framework.',
   },
@@ -36,3 +41,45 @@ export const experiences = [
     description: 'I provided web solutions, applying a range of technologies',
   },
 ];
+
+export function getSkills(t: Translator): SkillType[] {
+  return [
+    { title: t('JavaScript') },
+    { title: t('TypeScript') },
+    { title: t('React') },
+    { title: t('Vue') },
+    { title: t('Nextjs') },
+    { title: t('Tailwind') },
+    { title: t('Express') },
+    { title: t('Laravel') },
+    { title: t('Symfony') },
+    { title: t('AWS') },
+    { title: t('Docker') },
+    { title: t('Git') },
+    { title: t('Threejs') },
+    { title: t('WebGL') },
+  ];
+}
+
+export function getExperiences(t: Translator): ExperienceType[] {
+  return [
+    {
+      title: t('frontend.title'),
+      company: t('frontend.company'),
+      date: t('frontend.date'),
+      description: t('frontend.description'),
+    },
+    {
+      title: t('fullstack.title'),
+      company: t('fullstack.company'),
+      date: t('fullstack.date'),
+      description: t('fullstack.description'),
+    },
+    {
+      title: t('freelancer.title'),
+      company: t('freelancer.company'),
+      date: t('freelancer.date'),
+      description: t('freelancer.description'),
+    },
+  ];
+}

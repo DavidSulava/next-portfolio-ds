@@ -5,10 +5,12 @@ import Navbar from './Navbar';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { TransitionProviderProps } from '@/types';
+import { locales } from '@/i18n';
 import {FC} from 'react';
 
 const TransitionProvider: FC<TransitionProviderProps> = ({ children }) => {
   const pathName = usePathname();
+  const pathWithoutLang = pathName.split(new RegExp(`\\/(${locales.join('|')})\\/`))[2] || '';
 
   return (
     <AnimatePresence mode="wait">
@@ -29,7 +31,7 @@ const TransitionProvider: FC<TransitionProviderProps> = ({ children }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", transitionEnd: { display: "none" }  }}
         >
-          {pathName.substring(1)}
+          {pathWithoutLang}
         </motion.div>
         <motion.div
           className="h-screen w-screen fixed bg-black rounded-t-[100px] bottom-0 z-30"

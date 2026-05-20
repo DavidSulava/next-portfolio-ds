@@ -2,9 +2,12 @@
 
 import { motion } from 'framer-motion';
 import PageWrapper from '@/components/PageWrapper';
+import { useTranslations } from 'next-intl';
 
 export default function ContactPage() {
-  const text = 'Say Hello';
+  const t = useTranslations('contact');
+
+  const text = t('sayHello');
 
   return (
     <PageWrapper>
@@ -28,27 +31,27 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24">
-          <span>Dear David,</span>
+          <span>{t('dear')}</span>
           <textarea
             rows={6}
             className="bg-transparent border-b-2 border-b-black outline-none resize-none"
             readOnly
-            placeholder="Write your message here..."
+            placeholder={t('placeholder')}
           />
-          <span>My mail address is:</span>
+          <span>{t('myMail')}</span>
           <input
             type="email"
             className="bg-transparent border-b-2 border-b-black outline-none"
             readOnly
-            placeholder="your@email.com"
+            placeholder={t('emailPlaceholder')}
           />
-          <span>Regards</span>
+          <span>{t('regards')}</span>
           <a
             href="https://t.me/DavidSulava"
             target="_blank"
             className="bg-purple-200 rounded font-semibold text-gray-600 p-4 text-center cursor-pointer hover:bg-purple-300 transition-colors"
           >
-            Send via Telegram
+            {t('sendTelegram')}
           </a>
         </div>
       </div>

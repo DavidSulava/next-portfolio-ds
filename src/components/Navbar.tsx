@@ -5,11 +5,17 @@ import Link from 'next/link';
 import { useState } from 'react';
 import NavLink from './navLink';
 import { motion, Variants } from 'framer-motion';
-import { navLinks, socialLinks } from '@/data/navigation';
+import { socialLinks, getNavLinks } from '@/data/navigation';
 import { publicPath } from '@/lib/publicPath';
+import { useLocale, useTranslations } from 'next-intl';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const locale = useLocale();
+  const t = useTranslations('nav');
+  const common = useTranslations('common');
+  const navLinks = getNavLinks(t, locale);
 
   const topVariants: Variants = {
     closed: { rotate: 0 },
@@ -47,23 +53,24 @@ export default function Navbar() {
       {/* LOGO */}
       <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
         <Link
-          href="/"
+          href={`/${locale}`}
           className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
         >
-          <span className="text-white mr-1">David</span>
+          <span className="text-white mr-1">{common('logoDavid')}</span>
           <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">
-            Sulava
+            {common('logoSulava')}
           </span>
         </Link>
       </div>
 
-      {/* SOCIAL */}
-      <div className="hidden md:flex gap-4 w-1/3">
+      {/* SOCIAL + LANGUAGE */}
+      <div className="hidden md:flex gap-4 w-1/3 items-center">
         {socialLinks.map((item) => (
           <Link href={item.url} target="_blank" key={item.url}>
             <Image src={publicPath + item.img} alt="link image" width={24} height={24} />
           </Link>
         ))}
+        <LanguageSwitcher />
       </div>
 
       {/* RESPONSIVE MENU */}
@@ -100,6 +107,7 @@ export default function Navbar() {
                 <Link href={link.url}>{link.title}</Link>
               </motion.div>
             ))}
+            <LanguageSwitcher />
           </motion.div>
         )}
       </div>

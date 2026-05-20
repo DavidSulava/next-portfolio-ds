@@ -3,13 +3,15 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NavLinkProps } from '@/types';
-import {FC} from 'react';
+import { FC } from 'react';
 
 const NavLink: FC<NavLinkProps> = ({ link }) => {
   const pathName = usePathname();
+  const normalizedPath = pathName.replace(/^\/(en|ru)/, '');
+  const normalizedLink = link.url === '/' ? '/' : link.url;
 
   return (
-    <Link className={`rounded p-1 ${pathName === link.url && "bg-black text-white"}`} href={link.url}>
+    <Link className={`rounded p-1 ${normalizedPath === normalizedLink && "bg-black text-white"}`} href={link.url}>
       {link.title}
     </Link>
   );

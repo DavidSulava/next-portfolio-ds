@@ -5,22 +5,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import PageWrapper from '@/components/PageWrapper';
-import { portfolioItems } from '@/data/portfolio';
+import { getPortfolioItems } from '@/data/portfolio';
 import { publicPath } from '@/lib/publicPath';
+import { useTranslations } from 'next-intl';
 
 export default function PortfolioPage() {
+  const t = useTranslations('portfolio');
+  const common = useTranslations('common');
+  const itemsT = useTranslations('portfolioItems');
+
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ target: ref });
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-80%']);
 
+  const portfolioItems = getPortfolioItems(itemsT);
+
   return (
     <PageWrapper>
       <div className="h-[600vh] relative" ref={ref}>
         <div className="h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-7xl text-center">
-          <div>My work examples</div>
+          <div>{t('title')}</div>
           <span className="italic text-3xl">
-            Scroll Down
+            {common('scrollDown')}
           </span>
         </div>
         <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
@@ -46,7 +53,7 @@ export default function PortfolioPage() {
                     target="_blank"
                     className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold rounded w-fit"
                   >
-                    Go to site
+                    {t('goToSite')}
                   </Link>
                 </div>
               </div>
@@ -55,7 +62,7 @@ export default function PortfolioPage() {
         </div>
       </div>
       <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
-        <h1 className="text-7xl">Do you have a project?</h1>
+        <h1 className="text-7xl">{t('haveProject')}</h1>
         <div className="relative flex items-center justify-center">
           <motion.svg
             animate={{ rotate: 360 }}
@@ -66,12 +73,12 @@ export default function PortfolioPage() {
             <defs>
               <path
                 id="circlePath"
-                d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0"
+                d="M 150, 150 m -60,0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0"
               />
             </defs>
             <text fill="#000">
               <textPath xlinkHref="#circlePath" className="text-xl">
-                Web Developer and UI Designer
+                {common('webDev')}
               </textPath>
             </text>
           </motion.svg>
@@ -80,7 +87,7 @@ export default function PortfolioPage() {
             target="_blank"
             className="w-16 h-16 md:w-28 md:h-28 absolute z-100 bg-black text-white rounded-full flex items-center justify-center cursor-pointer"
           >
-            Contact Me
+            {common('contactMe')}
           </Link>
         </div>
       </div>

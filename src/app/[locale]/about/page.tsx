@@ -6,9 +6,14 @@ import ScrollIndicator from '@/components/ScrollIndicator';
 import ExperienceCard from '@/components/ExperienceCard';
 import { motion, useInView, useScroll } from 'framer-motion';
 import { useRef } from 'react';
-import { skills, experiences } from '@/data/about';
+import { useTranslations } from 'next-intl';
+import { getSkills, getExperiences } from '@/data/about';
 
 export default function AboutPage() {
+  const t = useTranslations('about');
+  const skillsT = useTranslations('skills');
+  const experiencesT = useTranslations('experiences');
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ container: containerRef });
@@ -19,20 +24,21 @@ export default function AboutPage() {
   const experienceRef = useRef<HTMLDivElement>(null);
   const isExperienceRefInView = useInView(experienceRef, { margin: '-100px' });
 
+  const skills = getSkills(skillsT);
+  const experiences = getExperiences(experiencesT);
+
   return (
     <PageWrapper>
       <div className="h-full overflow-scroll lg:flex" ref={containerRef}>
         <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-32 xl:gap-48 lg:w-2/3 lg:pr-0 xl:w-1/2">
           {/* BIOGRAPHY */}
           <div className="flex flex-col gap-12 justify-center align-start">
-            <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
+            <h1 className="font-bold text-2xl">{t('biography')}</h1>
             <p className="text-lg">
-              My name is David Sulava. I&apos;m a web developer with nearly seven years of experience, focused mainly on building modern, user-friendly interfaces and web applications.
-              While my core expertise lies in frontend development (Vue, React), I&apos;m also comfortable working with backend technologies like Node.js and PHP.
-              I value clean code, teamwork, and continuous professional growth.
+              {t('bioText')}
             </p>
             <span className="italic">
-              Every line of code is a step toward turning an idea into reality!
+              {t('quote')}
             </span>
             <ScrollIndicator />
           </div>
@@ -45,7 +51,7 @@ export default function AboutPage() {
               transition={{ delay: 0.2 }}
               className="font-bold text-2xl"
             >
-              SKILLS
+              {t('skills')}
             </motion.h1>
             <motion.div
               initial={{ x: '-300px' }}
@@ -72,7 +78,7 @@ export default function AboutPage() {
               transition={{ delay: 0.2 }}
               className="font-bold text-2xl"
             >
-              EXPERIENCE
+              {t('experience')}
             </motion.h1>
             <motion.div
               initial={{ x: '-300px' }}
