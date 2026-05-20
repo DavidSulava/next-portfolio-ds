@@ -9,6 +9,7 @@ const publicPath = isProd ? '/next-portfolio-ds' : ''
 
 const nextConfig = {
   output: 'export',
+  basePath: publicPath,
   env: {
     publicPath: publicPath,
   },
