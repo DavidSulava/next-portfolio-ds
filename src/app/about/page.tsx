@@ -1,6 +1,6 @@
 'use client';
 
-import Brain from '@/components/brain';
+import Brain from '@/components/Brain';
 import PageWrapper from '@/components/PageWrapper';
 import ScrollIndicator from '@/components/ScrollIndicator';
 import ExperienceCard from '@/components/ExperienceCard';
