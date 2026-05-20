@@ -8,6 +8,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const publicPath = isProd ? '/next-portfolio-ds' : ''
 
 const nextConfig = {
+  output: 'export',
   env: {
     publicPath: publicPath,
   },
